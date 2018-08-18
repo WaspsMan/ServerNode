@@ -11,6 +11,7 @@ module.exports = function(app) {
         res.send({ hi: 'there' });
     });
     app.get('/list', requireAuth, List.name);
+    app.post('/postlist', requireAuth, List.postList);
     app.post('/signin', requireSignin, Authentication.signin);
     app.post('/signup', Authentication.signup);
 
