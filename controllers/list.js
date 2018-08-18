@@ -8,11 +8,14 @@ exports.name = function (req, res, next) {
 }
 
 exports.postList = function(req, res, next) {
-    const { name, count } = req.body;
+    const { name, count, type } = req.body;
 
     const list = new List({
         name: name,
-        count: count
+        count: count,
+        typed: {
+            type: type
+        }
     })
 
     if(!list.name || !list.count){
