@@ -1,5 +1,4 @@
-const Authentication = require('./controllers/authentication');
-const List = require('./controllers/list');
+const { Authentication, List, County } = require('./controllers');
 const passprotSevice = require('./services/passport');
 const passport = require('passport');
 
@@ -12,6 +11,8 @@ module.exports = function(app) {
     });
     app.get('/list', requireAuth, List.name);
     app.post('/postlist', requireAuth, List.postList);
+    app.get('/countys', requireAuth, County.name);
+    app.get('/countys/:id', requireAuth, County.amphoes);
     app.post('/signin', requireSignin, Authentication.signin);
     app.post('/signup', Authentication.signup);
 
